@@ -105,5 +105,5 @@ python evaluation.py
 To train our model from scratch, please run :
 
 ```
-python  main_single.py
+python main_single.py
 ```
