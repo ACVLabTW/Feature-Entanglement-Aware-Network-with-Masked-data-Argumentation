@@ -1,0 +1,66 @@
+# distributed training
+nodes: 1
+gpus: 1 # I recommend always assigning 1 GPU to 1 node
+nr: 0 # machine nr. in node (0 -- nodes - 1)
+dataparallel: 0 # Use DataParallel instead of DistributedDataParallel
+workers: 16
+mydata: False
+dataset_dir: "/hdd1/DeepFakes_may/FF++/raw/"
+train_file: "/hdd1/DeepFakes_may/FF++/train.txt"
+# dataset_dir: "/hdd1/DeepFakes_may/celeb-df/"
+# train_file: "/hdd1/DeepFakes_may/celeb-df/train.txt"
+
+dataset_dir_test: "/hdd1/DeepFakes_may/FF++/raw/"
+test_file: "/hdd1/DeepFakes_may/FF++/test.txt"
+# dataset_dir_test: "/hdd1/DeepFakes_may/celeb-df/"
+# test_file: "/hdd1/DeepFakes_may/celeb-df/test.txt"
+
+# train options
+seed: 42 # sacred handles automatic seeding when passed in the config
+backbone: 'cspdarknet53'  # Can be resnet50, resnet101, cspdarknet53, efficientnet (b4)
+batch_size: 8
+image_size: 160
+crop_size: 144
+marginal: 3
+# random_mask: 0.2
+heads: 16  # number of multihead, 0 means using gMLP  (original set: 8,4,2) #compare
+L1_depth: 2  # depth of transformer in temporal dim  
+start_epoch: 0
+epochs: 100
+FRR: 16      # number of slices we sampled from CT #compare
+FREQ: 2      # The interval between frames/slices
+MultiFREQ: "1,3"  # override the setting of FREQ for variant FREQ if not None
+dataset: "FaceForensics" # STL10
+pretrain: False
+pos_weight: 0.25
+centerCrop: 0 # [0~100] 0: off, >0 indicates how much percentage of slices will be kept for training
+masked_reconstruction: True  # False when percent=0
+
+view_interval: 20
+lr: 0.0001
+
+n_features: 4096
+# loss options
+optimizer: "Adam" # or LARS (experimental)
+weight_decay: 1.0e-6 # "optimized using LARS [...] and weight decay of 10−6"
+temperature: 0.5 # see appendix B.7.: Optimal temperature under different batch sizes
+
+# reload options
+#model_path: "checkpoint/ViTSingle-rm8-h16-LD2-frr16-cspdarknet53" # set to the directory containing `checkpoint_##.tar` 
+model_path: "checkpoint/FF++_right/ViTSingle-rm2-h16-LD2-frr16-cspdarknet53-FF++-rearrange-mask" #loss2wet_1
+epoch_num: 0 # set to checkpoint number
+reload: False #True
+
+# logistic regression options
+logistic_batch_size: 256
+logistic_epochs: 1500
+log_name: "ViTSingle-rm2-h16-LD2-frr16-cspdarknet53-FF++-rearrange-mask"
+test_aug: False
+max_det: 10
+useFeatMap: -1
+
+# data augmentation
+percent: 0.2 # type3 how many percent of noise in a frame #compare
+use_model_percent: 0.2 # Controls the checkpoint used by the model when testing
+loss2_weight: 0.1  #compare
+use_mask: True   # always False,and only can use in rearrange structure, mask the spatiotemporal features of the background (give 0) 
