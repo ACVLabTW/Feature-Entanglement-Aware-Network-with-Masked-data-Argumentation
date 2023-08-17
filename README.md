@@ -54,11 +54,11 @@
 
 2. Download the landmark detector from [here](https://github.com/codeniko/shape_predictor_81_face_landmarks) and put it in the folder *Feature-Entanglement-Aware-Network-with-Masked-data-Argumentation*.
 
-3. config/config_single.yaml
-   dataset_dir: path to training dataset.
-   train_file: The training set path text file, which contains the relative path of the training set and the corresponding label, the path starts from *dataset_dir*.
-   dataset_dir_test: path to testing dataset.
-   test_file: The training set path text file, which contains the relative path of the training set and the corresponding label, the path starts from *dataset_dir_test*.
+3. config/config_single.yaml  
+   dataset_dir: path to training dataset.  
+   train_file: The training set path text file, which contains the relative path of the training set and the corresponding label, the path starts from *dataset_dir*.  
+   dataset_dir_test: path to testing dataset.  
+   test_file: The training set path text file, which contains the relative path of the training set and the corresponding label, the path starts from *dataset_dir_test*.  
 
 ## Pretrained weights
 
