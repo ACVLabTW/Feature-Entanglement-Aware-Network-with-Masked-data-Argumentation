@@ -14,7 +14,7 @@
 
 ##### FF++ and Celeb-DF:
 
-1. Download the dataset from [FF++](https://github.com/ondyari/FaceForensics) and [Celeb-DF](https://github.com/yuezunli/celeb-deepfakeforensics).  
+1. Download the dataset from [FF++](https://github.com/ondyari/FaceForensics) and [Celeb-DF](https://github.com/yuezunli/celeb-deepfakeforensics).
 FF++:
 ```
 .
