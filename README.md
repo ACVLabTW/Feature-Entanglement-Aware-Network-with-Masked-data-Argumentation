@@ -12,10 +12,10 @@
 
 ## Data Preparation
 
-##### Take FF++ as an example:
+##### FF++ and Celeb-DF:
 
-1. Download the dataset from [FF++](https://github.com/ondyari/FaceForensics).
-
+1. Download the dataset from [FF++](https://github.com/ondyari/FaceForensics) and [Celeb-DF](https://github.com/yuezunli/celeb-deepfakeforensics).  
+FF++:
 ```
 .
 └── dataset
@@ -52,6 +52,31 @@
         ├── FaceSwap
         ├── NeuralTextures
         └── Real_youtube
+```
+Celeb-DF:
+```
+.
+└── dataset
+    ├── Celeb-real
+    │   ├── train
+    │   │   ├── id0_0000
+    │   │   │   ├── 000.png
+    │   │   │   ├── 001.png
+    │   │   │   ...
+    │   |   ├── id0_0001
+    │   │   ...
+    │   ├── val
+    │   │   ├── 000_003
+    │   │   │   ├── 000.png
+    │   │   │   ├── 001.png
+    │   │   │   ...
+    │   |   ├── 001_870
+    │   │   ...
+    │   └── test
+    └── Celeb-synthesis
+        ├── train
+        ├── val
+        └── test
 ```
 
 2. Download the landmark detector from [here](https://github.com/codeniko/shape_predictor_81_face_landmarks) and put it in the folder *Feature-Entanglement-Aware-Network-with-Masked-data-Argumentation*.
