@@ -2,11 +2,13 @@
 
 ## Dependencies
 
-* Python 3 >= 3.6
-* Pytorch >= 1.6.0
-* OpenCV >= 4.4.0
-* Scipy >= 1.4.1
-* NumPy >= 1.19.5
+* einops >=0.4.1
+* mtcnn >=0.1.1
+* python >= 3.9.7
+* pytorch >= 1.12.1
+* openCV >= 4.5.5
+* scipy >= 1.10.0
+* numPy >= 1.20.0
 
 ## Data Preparation
 
